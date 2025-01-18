@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client'; // Indica que este é um componente do lado do cliente
 
 import { useState, useEffect } from 'react';
@@ -7,9 +6,7 @@ import { FaBullseye, FaEye, FaHandshake } from 'react-icons/fa6';
 
 export default function Home() {
   const [rentValue, setRentValue] = useState<number | ''>('');
-  const [commissionPercentage, setCommissionPercentage] = useState<number | ''>(
-    ''
-  );
+  const [commissionPercentage, setCommissionPercentage] = useState<number | ''>('');
   const [commission, setCommission] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -387,8 +384,8 @@ export default function Home() {
                 <p className="font-semibold">Ana Silva</p>
               </div>
               <p className="text-gray-600">
-                "Indiquei um imóvel para aluguel e ganhei uma comissão incrível!
-                O processo foi simples e rápido."
+                &quot;Indiquei um imóvel para aluguel e ganhei uma comissão incrível!
+                O processo foi simples e rápido.&quot;
               </p>
             </div>
 
@@ -405,8 +402,8 @@ export default function Home() {
                 <p className="font-semibold">João Souza</p>
               </div>
               <p className="text-gray-600">
-                "Com o simulador, pude planejar minhas indicações e maximizar
-                meus ganhos. Recomendo!"
+                &quot;Com o simulador, pude planejar minhas indicações e maximizar
+                meus ganhos. Recomendo!&quot;
               </p>
             </div>
           </div>
