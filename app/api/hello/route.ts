@@ -1,17 +1,27 @@
-// pages/api/calculate.ts (ou app/api/calculate/route.ts)
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    const { rentValue, commissionPercentage } = req.body;
+export async function POST(request: Request) {
+  try {
+    const { rentValue, commissionPercentage } = await request.json();
 
+    // Validação dos campos
     if (!rentValue || !commissionPercentage) {
-      return res.status(400).json({ error: 'Por favor, preencha todos os campos.' });
+      return NextResponse.json(
+        { error: 'Por favor, preencha todos os campos.' },
+        { status: 400 }
+      );
     }
 
+    // Cálculo da comissão
     const commission = (rentValue * commissionPercentage) / 100;
-    return res.status(200).json({ commission });
-  } else {
-    return res.status(405).json({ error: 'Método não permitido.' });
+
+    // Retorna a resposta com a comissão calculada
+    return NextResponse.json({ commission }, { status: 200 });
+  } catch (error) {
+    // Tratamento de erros
+    return NextResponse.json(
+      { error: 'Erro ao processar a requisição.' },
+      { status: 500 }
+    );
   }
 }
