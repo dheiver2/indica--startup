@@ -33,7 +33,7 @@ export default function Home() {
       setError('Por favor, preencha todos os campos.');
       return;
     }
-
+  
     try {
       const response = await fetch('/api/calculate', {
         method: 'POST',
@@ -42,15 +42,15 @@ export default function Home() {
         },
         body: JSON.stringify({ rentValue, commissionPercentage }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Erro ao calcular a comissão.');
       }
-
+  
       const data = await response.json();
       setCommission(data.commission);
       setError(null);
-
+  
       // Adicionar ao histórico
       setHistory((prev) => [
         ...prev,
