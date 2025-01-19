@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
+    // Extrai os dados do corpo da requisição
     const { rentValue, commissionPercentage } = await request.json();
 
     // Validação dos campos
