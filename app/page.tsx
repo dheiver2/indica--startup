@@ -524,7 +524,7 @@ export default function Home() {
             reservados.
           </p>
           <p className={darkMode ? 'text-gray-400' : 'text-gray-300'}>
-            Desenvolvido com ❤️ por [Sua Empresa]
+            Desenvolvido com ❤️ por Dr Dheiver Francisco Santos
           </p>
         </div>
       </footer>
